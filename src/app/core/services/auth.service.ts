@@ -1,15 +1,17 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { IUserLogin } from '../../shared/interfaces';
+import { IUserLogin } from '../../shared/interfaces/common-interfaces';
 
 @Injectable()
 export class AuthService {
 
-    authUrl = '/api/auth';
+    apiUrl = environment.apiBaseUrl;
+
     isAuthenticated = false;
     redirectUrl: string;
     @Output() authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -21,7 +23,7 @@ export class AuthService {
     }
 
     login(userLogin: IUserLogin): Observable<boolean> {
-        return this.http.post<boolean>(this.authUrl + '/login', userLogin)
+        return this.http.post<boolean>(this.apiUrl + '/api/auth/login', userLogin)
             .pipe(
                 map(loggedIn => {
                     this.isAuthenticated = loggedIn;
@@ -33,7 +35,7 @@ export class AuthService {
     }
 
     logout(): Observable<boolean> {
-        return this.http.post<boolean>(this.authUrl + '/logout', null)
+        return this.http.post<boolean>(this.apiUrl + '/api/auth/logout', null)
             .pipe(
                 map(loggedOut => {
                     this.isAuthenticated = !loggedOut;

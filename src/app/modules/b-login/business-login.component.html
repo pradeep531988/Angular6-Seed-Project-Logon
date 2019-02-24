@@ -1,0 +1,64 @@
+<ul id="skip">
+        <li><a href="#left-section">Skip to content</a></li>
+        <li><a href="#right-section">Skip to search</a></li>
+    </ul>
+<div class="view">
+    <div class="row">
+        <section class="col-md-8 col-sm-8 col-lg-8" id="left-section">
+                <div class="container">
+                        <header>
+                            <h3><span class="glyphicon glyphicon-lock"></span> Log on to Online Banking</h3>
+                        </header>
+                        <br />
+                        <!-- <bnk-cm-navbar></bnk-cm-navbar> -->
+                        <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)" class="login-form" novalidate>
+                            <div class="login">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        Business Pid:
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="number" placeholder="enter numeric pid" name="pid" class="form-control" formControlName="pid" />
+                                        <div class="alert alert-danger" [hidden]="loginForm.controls.pid.untouched || loginForm.controls.pid.valid">
+                                            A valid pid is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        SecurityId:
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="password" placeholder="enter valid security no" name="securityId" class="form-control" formControlName="securityId" />
+                                        <div class="alert alert-danger" [hidden]="loginForm.controls.securityId.untouched || loginForm.controls.securityId.valid">
+                                            Security is required (Minimum 15 numeric number)
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="statusRow">
+                                    <br />
+                                    <div class="label label-important" *ngIf="errorMessage">
+                                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ errorMessage }}
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </section>
+        <section class="col-md-4 col-sm-4 col-lg-4">
+                Your Right Section Here for Buisness    
+        </section>
+
+    </div>
+   
+
+</div>

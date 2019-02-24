@@ -1,4 +1,4 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+$background-fill-primary: #EC0000;
 
 html {
     overflow-y: scroll;
@@ -6,9 +6,13 @@ html {
 }
 
 body {
-    font-family: 'Open Sans'
+    font-family: 'Open Sans';
+    background-color: no-repeat fixed #F0F0F0;
 }
 
+form {
+    width: 90% !important;
+}
 main {
     position: relative;
     padding-top: 60px;
@@ -27,6 +31,10 @@ th {
     line-height:50px;
     font-size:20px;
     color: white;
+}
+
+#main-nav-bar {
+    flex-direction: row !important;
 }
 
 .toolbar-item a {
@@ -50,7 +58,7 @@ th {
 }
 
 .navbar {
-    min-height: 60px;
+    flex-direction: row;
 }
 
 .navbar .nav > li.toolbar-item > a {
@@ -86,7 +94,7 @@ a.navbar-brand {
 
 .navbar-inner {
     padding-left: 0px;
-    background-color: rgb(244, 2, 2);
+    background-color: $background-fill-primary;
 }
 
 .navbar-inner.toolbar {
@@ -100,11 +108,12 @@ a.navbar-brand {
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
     background-color: #efefef;
-    color: #808080;
+    color: darkslategray;
 }
 
 .navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover {
-    color: #E03930;
+    background-color: green;
+    color: darkslategray;
 }
 
 .navbar .nav > li  {
@@ -190,3 +199,41 @@ a:hover, a:focus {
     to {transform: rotate(359deg);}
   }
 
+/** Skip Links Start*/
+#skip{
+    position: absolute;
+	left: 0;
+	top: 1;
+	width: 100%;
+    margin-left: 0;
+	text-align: center;
+	list-style: outside none;
+}
+
+#skip li{ list-style-type: none }
+
+#skip a{
+	position: absolute;
+	//left: -99999px;
+	top: 30px;
+}
+
+#skip a:focus, #skip a:active{
+	position: relative;
+	left: 0;
+	z-index:9999;
+	width: 75%;
+	height: auto;
+	margin: 0 auto;
+	padding: 30px 45px;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: -4px !important;
+	font: bold 50px "Arial", "Freesans", sans-serif !important;
+	/* color information, edit this to suit the colors of your layout */
+        color: #AEAEFE;
+	background: transparent  repeat scroll 0 0;
+	border: 1px dotted #ffb4db;
+}
+
+/** Skip Link End */

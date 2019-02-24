@@ -13,12 +13,13 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { EventBusService } from './services/event-bus.service';
 import { LoggerService } from './services/logger.service';
 import { AuthService } from './services/auth.service';
+import { HeaderModule } from './header/header.module';
+import { NavBarModule } from './navbar/navbar.module';
+import { FooterModule } from './footer/footer.module';
 
 @NgModule({
-  // ModalModule
-  imports: [CommonModule, RouterModule, HttpClientModule, OverlayModule],
-  exports: [ RouterModule, HttpClientModule, OverlayModule, NavbarComponent],
-  declarations: [NavbarComponent],
+  imports: [CommonModule, RouterModule, HttpClientModule, ModalModule, OverlayModule],
+  exports: [ RouterModule, HttpClientModule, ModalModule,  OverlayModule, NavBarModule, HeaderModule, FooterModule],
   providers: [ EventBusService, LoggerService, AuthService,
     {
       provide: HTTP_INTERCEPTORS,

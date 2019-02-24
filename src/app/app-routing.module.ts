@@ -4,8 +4,9 @@ import { RouterModule, Routes, PreloadAllModules, NoPreloading } from '@angular/
 // import { PreloadModulesStrategy } from './core/strategies/preload-modules.strategy';
 
 const app_routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/login' },
-  { path: 'login', loadChildren: 'app/modules/login/login.module#LoginModule' },
+  { path: '', pathMatch: 'full', redirectTo: '/personal-login' },
+  { path: 'personal-login',  loadChildren: './modules/p-login/login.module#LoginModule' },
+  { path: 'business-login', loadChildren: './modules/b-login/business-login.module#BusinessLoginModule' },
   { path: '**', pathMatch: 'full', redirectTo: '/' } // catch any unfound routes and redirect to home page
 ];
 
