@@ -35,8 +35,12 @@ th {
 
 #main-nav-bar {
     flex-direction: row !important;
+    width: inherit;
 }
 
+.login-container {
+   border: 1px solid #b4b4b4 
+}
 .toolbar-item a {
   cursor: pointer;
 }
@@ -104,6 +108,15 @@ a.navbar-brand {
 .navbar-inner.footer {
     background-color: #fafafa;
     height:50px;
+}
+
+@mixin navigation-box {
+    margin-right: 5%;
+    border-radius: 10%;
+}
+
+.navbar-nav > li {
+    @include navigation-box;
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
@@ -203,7 +216,7 @@ a:hover, a:focus {
 #skip{
     position: absolute;
 	left: 0;
-	top: 1;
+	top: 0;
 	width: 100%;
     margin-left: 0;
 	text-align: center;
@@ -214,7 +227,7 @@ a:hover, a:focus {
 
 #skip a{
 	position: absolute;
-	//left: -99999px;
+	left: -99999px;
 	top: 30px;
 }
 

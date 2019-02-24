@@ -15,7 +15,7 @@ export class ValidationService {
     static pidValidator(control: AbstractControl): any{
         // RFC 2822 compliant regex
         // tslint:disable-next-line
-        if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
+        if (control.value && control.value.toString().match(/^[0-9]{12}$/)) {
             return null;
         } else {
             return { invalidPid : true };
@@ -27,7 +27,8 @@ export class ValidationService {
         // (?=.*[0-9])       - Assert a string has at least one number
         // (?!.*\s)          - Spaces are not allowed
         // tslint:disable-next-line
-        if (control.value.match(/^(?=.*\d)(?=.*[a-zA-Z!@#$%^&*])(?!.*\s).{6,100}$/)) {
+        // if (control.value.match(/^(?=.*\d)(?=.*[a-zA-Z!@#$%^&*])(?!.*\s).{6,100}$/)) {
+        if (control.value.match(/^[0-9]{15}$/)) {
             return null;
         } else {
             return { invalidSecurityNo: true };

@@ -1,12 +1,12 @@
 <ul id="skip">
-        <li><a href="#left-section">Skip to content</a></li>
-        <li><a href="#right-section">Skip to search</a></li>
+        <li><a href="#left-section">Skip to left section</a></li>
+        <li><a href="#right-section">Skip to right section</a></li>
     </ul>
 
 <div class="view">
     <div class="row">
         <section class="col-md-8 col-sm-8 col-lg-8" id="left-section">
-                <div class="container">
+                <div class="container login-container">
                         <header>
                             <h3><span class="glyphicon glyphicon-lock"></span> Log on to Online Banking</h3>
                         </header>
@@ -20,7 +20,7 @@
                                     <div class="col-md-10">
                                         <input type="number" placeholder="enter numeric pid" name="pid" class="form-control" formControlName="pid" />
                                         <div class="alert alert-danger" [hidden]="loginForm.controls.pid.untouched || loginForm.controls.pid.valid">
-                                            A valid pid is required
+                                            A valid 12 digit pid is required
                                         </div>
                                     </div>
                                 </div>
@@ -32,14 +32,14 @@
                                     <div class="col-md-10">
                                         <input type="password" placeholder="enter valid security no" name="securityId" class="form-control" formControlName="securityId" />
                                         <div class="alert alert-danger" [hidden]="loginForm.controls.securityId.untouched || loginForm.controls.securityId.valid">
-                                            Security is required (Minimum 15 numeric number)
+                                            15 Digit Security number is required
                                         </div>
                                     </div>
                                 </div>
                                 <br />
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
+                                        <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Log on</button>
                                     </div>
                                 </div>
                                 <br />
