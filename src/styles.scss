@@ -1,4 +1,18 @@
-$background-fill-primary: #EC0000;
+@charset 'UTF-8';
+
+$background-fill-header: #EC0000;
+$background-fill-footer: $background-fill-header;
+$background-default: #F0F0F0;
+$background-fill-navbar: $background-default;
+
+@mixin navigation-box {
+    margin-right: 3%;
+    border-radius: 10%;
+}
+
+@mixin general-border {
+    border: 1px solid #b4b4b4 
+}
 
 html {
     overflow-y: scroll;
@@ -7,7 +21,7 @@ html {
 
 body {
     font-family: 'Open Sans';
-    background-color: no-repeat fixed #F0F0F0;
+    background: no-repeat fixed $background-default;
 }
 
 form {
@@ -39,7 +53,7 @@ th {
 }
 
 .login-container {
-   border: 1px solid #b4b4b4 
+    @include general-border;
 }
 .toolbar-item a {
   cursor: pointer;
@@ -65,6 +79,10 @@ th {
     flex-direction: row;
 }
 
+.navbar > div {
+    padding-left: 0px;
+}
+
 .navbar .nav > li.toolbar-item > a {
     color: #9E9E9E;
     font-weight:bold;
@@ -84,7 +102,7 @@ th {
 }
 
 .nav.navbar-padding {
-    margin-left:25px;
+    //margin-left:25px;
     margin-top: 10px;
 }
 
@@ -98,22 +116,20 @@ a.navbar-brand {
 
 .navbar-inner {
     padding-left: 0px;
-    background-color: $background-fill-primary;
+    padding: .5rem 0rem !important;
+    //background-color: $background-fill-navbar;
 }
 
 .navbar-inner.toolbar {
     background-color: #fafafa;
 }
 
+/*
 .navbar-inner.footer {
     background-color: #fafafa;
     height:50px;
-}
+} */
 
-@mixin navigation-box {
-    margin-right: 5%;
-    border-radius: 10%;
-}
 
 .navbar-nav > li {
     @include navigation-box;
@@ -125,8 +141,8 @@ a.navbar-brand {
 }
 
 .navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover {
-    background-color: green;
-    color: darkslategray;
+    background-color: rgb(169, 182, 169);
+    color: white;
 }
 
 .navbar .nav > li  {
@@ -134,11 +150,14 @@ a.navbar-brand {
 }
 
 .navbar .nav > li > a {
-    color: white;
+    //color: white;
     font-weight:bold;
     height:30px;
-    padding-top: 6px;
-    padding-bottom: 0px;
+    padding: 5px;
+    padding-bottom: 10px;
+    @include general-border;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .navbar .nav > li.toolbaritem > a {

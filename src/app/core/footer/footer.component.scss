@@ -1,7 +1,8 @@
+@import "src/styles.scss"; 
 
 #footerbanner {
 color: #fff;
-background-color: #EC0000;
+background-color: $background-fill-footer;
 height: 53px;
 text-align: left;
 margin-bottom: 1%;
